@@ -1,0 +1,1313 @@
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <title>A new way to shop green and earn green</title>
+  <!-- Version 0.8 -->
+
+  <!--===========================================================================
+   [ A ] Base
+  <?==========================================================================-->
+  <style>
+
+      /* [10] Normalize Email
+      /^ _______________________________________________________________ */
+      /* Normalize Email is a different method than a hard reset.
+        the aim is to make clients which respect styles in the head
+        to behave similarly to ones that don't. This will reduce
+        inline code by leveraging defaults when possible */
+
+      /* Primary Structure
+      /^ ___________________________________________________________ */
+      #body {
+          margin: 0;
+          padding: 0;
+          /* all clients that support the following
+          styles should inheirt them to all children */
+          text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+          -webkit-text-size-adjust: 100%;
+          /* this should only break words when they are
+          the full width of their container. Notably
+          not supported in firefox */
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+      }
+
+      @media only screen and (max-width: 599px) {
+          /* outermost table where a background-color
+          would reside is reset to transparent on fluid */
+          .background {
+              background-color: transparent !important;
+          }
+      }
+
+      /* base font declaration, in conjunction with one
+      inline declaration will inherit to all tables.
+      this removes the need to inline these properties
+      on every table written unless the design deviates */
+      td.content, .content table, .button {
+          /* inline this only td.content, inherits to all children in our support stack */
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          line-height: 18px;
+          color: #000000;
+      }
+
+      /* Tables
+      /^ ___________________________________________________________ */
+      /* border-collapse and border-spacing are css
+      properties which zero out the same thing as
+      cellspacing and cellpadding. If you need flush
+      colors in clients that sever the head these
+      may need to be inline */
+      table {
+          border-collapse: collapse;
+          border: none;
+          /* inline border-spacing for flush colors */
+          border-spacing: 0;
+          /*margin: 0;*/
+      }
+
+      /* replicates outlook behavior in browser */
+      table tr {
+          vertical-align: middle;
+      }
+
+      td, th {
+          padding: 0;
+      }
+
+      table, img {
+          border: 0 hidden transparent;
+      }
+
+      /* prevents table width collapse in google apps. In
+      practice this means all tables that are not
+      100% will need their width and min-width redeclared */
+      /*#body table {*/
+      /*    min-width: 100%;*/
+      /*}*/
+
+      p {
+          margin: 0 0 20px;
+      }
+
+      /* display: inline-table; allows a table to be aligned
+      using text-align. For instance they can center and be
+      400px instead adding 100px padding on either side and
+      stepping it down. On small screens this class will reset
+      the inline-table to fluid so it doesn't force scaling */
+      @media only screen and (max-width: 480px) {
+          .inline-table {
+              width: 100% !important;
+              /* can I use max-width instead? */
+              min-width: 0 !important;
+          }
+      }
+
+      /* Inheritance
+      /^ ___________________________________________________________ */
+      /* This block defines how we can leverage inheritance
+      to write less styles and have them cascade in. Our
+      limits are the default capabilites of Outlook and AOL */
+
+      /* styles hidden from outlook in this media query */
+      @media only screen {
+          /* The following elements can pass the properties
+          listed to their children from a declaration on a
+          table which allows for less repitition */
+          tbody, thead, tfoot, tr, th, td, p, a, ul, ol, li, div {
+              font-family: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              font-style: inherit;
+          }
+
+          /* Color, if different from what is declared in the
+          primary stucture can inherit from a td or th to text
+          elements. aol presents issues inheriting this from a
+          table like the preceding properties. */
+          h1, h2, h3, h4, h5, h6, p, ol, ul, li {
+              color: inherit;
+          }
+
+          /* The th is inherently bold and centered so those
+          properties must be redefined on the th if they are
+          not desired. Bold and centered text will inherit to
+          children table and td in some clients if they are
+          not redefined. Aside from the th the following
+          properties can be defined on a table and inherited
+          to the listed elements */
+          tbody, tfoot, tr, td, p, a, ul, ol, li {
+              /* text-align must be inline on th if not center */
+              text-align: inherit;
+              /* font-weight must be inline on th if not bold */
+              font-weight: inherit;
+          }
+
+          /* Vertical-align can be declared on a tr instead
+          of every td or th on the row */
+          td, th {
+              vertical-align: inherit;
+          }
+      }
+
+      /* Anchors
+      /^ ___________________________________________________________ */
+      a, a:hover, a:active ,a:link {
+          color: inherit;
+          text-decoration: none;
+          border: none;
+          outline: 0px none;
+      }
+
+      a[x-apple-data-detectors] {
+          color: inherit;
+          text-decoration: inherit;
+      }
+
+      /* this allows a long string to break at any letter.
+      Word-wrap in the primary stucture will take care of
+      this in most clients. inserting wbr works in all clients */
+      a {
+          word-break: break-word;
+      }
+
+      @media only screen and (max-width: 480px) {
+          /* removes styling from google client link injection */
+          u+#body a {
+              /* reset google mobile data-detector links */
+              color: inherit;
+              text-decoration: inherit;
+          }
+      }
+
+      /* class .a on anchors underlines links in all clients
+      in our support stack. This means underline does not need
+      to be written inline but 'none' does. */
+      #body .a {
+          text-decoration: underline;
+      }
+
+      /* Images
+      /^ ___________________________________________________________ */
+      a img {
+          text-decoration: none;
+          border: none;
+      }
+
+      /* fluid images limited to parent width */
+      img {
+          max-width: 100%;
+      }
+
+      @media only screen and (max-width: 599px) {
+          /* height of all images will be automatically calculated
+          once the viewport is fluid and potentially scaling them */
+          img {
+              height: auto !important;
+          }
+      }
+
+      /* List
+      /^ ___________________________________________________________ */
+      /* Normalise space between bullets and text */
+      .mso li {
+          text-indent: -1em;
+      }
+
+      /* Superscript
+      /^ ___________________________________________________________ */
+      /* replicates photoshop default superscript values.
+      May be improved not to affect line spacing when in a paragraph */
+      sup {
+          font-size: 58%;
+          line-height: 1.3;
+          vertical-align: text-top;
+      }
+
+      /* superscript underline helper, wrap anchor in span.underline */
+      .underline, .underline a {
+          text-decoration: none !important;
+      }
+
+      /* outlook variant of the above fix */
+      .mso .underline a {
+          text-decoration: underline !important;
+      }
+
+  </style>
+  <!--[if mso]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <style>
+    /* Outlook Base Reset
+    /^ _________________________________________________________ */
+    table {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    a:link, span.MsoHyperlink,
+    a:visited, span.MsoHyperlinkFollowed {
+      color: inherit;
+      mso-style-priority: 99;
+    }
+
+    /* Superscript
+    /^ _________________________________________________________ */
+    /* outlook specific values */
+    sup {
+      font-size: 90% !important;
+      mso-text-raise: 2.5%;
+    }
+
+  </style>
+  <![endif]-->
+
+  <style>
+      /* [20] Helpers
+      /^ _______________________________________________________________ */
+      /* Helpers are common utility classes that are facilitate
+        frequently repeated procedures. When used well they
+        are clearly named for their purpose and don't overwhelm
+        the legibility of the body by requiring more than a
+        couple inline classes per element. Note outlook only
+        respects the first class so things like img-wrap
+        must be the first class declared */
+
+      /* Content hide and show by breakpoint
+      /^ ___________________________________________________________ */
+
+      /* Hides content from desktop width div.only-mobile
+      !! requires display none inline */
+      .only-mobile {
+          font-size: 0;
+          line-height: 0;
+      }
+
+      /* Hides children  of div.only-mobile */
+      .only-mobile, .only-mobile table, .only-mobile img {
+          display: none;
+          max-height: 0px;
+          overflow: hidden;
+      }
+
+      @media only screen and (max-width: 599px) {
+          /* hides content from fluid width */
+          .only-fixedwidth {
+              display: none;
+          }
+      }
+
+      @media only screen and (max-width: 480px) {
+          /* !! resets inline styles above to reveal mobile content */
+          .only-mobile, .only-mobile table, .only-mobile img {
+              max-height: inherit !important;
+              overflow: visible !important;
+          }
+
+          /* applies appropreate display modes to elements */
+          .only-mobile {
+              display: block !important;
+          }
+
+          span.only-mobile {
+              display: inline !important;
+          }
+
+          .only-mobile table,
+          table.only-mobile {
+              display: table !important;
+          }
+
+          .only-mobile table.inline-table {
+              display: inline-table !important;
+          }
+
+          .only-mobile img {
+              display: inline-block !important;
+          }
+
+          /* simple hide on mobile */
+          .only-desktop {
+              display: none !important;
+          }
+      }
+
+      /* text line breaks
+      /^ ___________________________________________________________ */
+      /* the br tag has no semantic value, only visual so
+      we should avoid them when content being seperated by
+      them would be confusing when read together. When
+      adjusting text rag an inline table can be useful. */
+
+      @media only screen and (max-width: 599px) {
+          /* hide br as soon as fluid */
+          .br-fixedwidth {
+              display: none;
+          }
+      }
+
+      @media only screen and (max-width: 480px) {
+          /* hide br on mobile */
+          .br-desktop {
+              display: none !important;
+          }
+
+          /* break on mobile !! likely needs inline classes */
+          .br-mobile {
+              display: block;
+          }
+      }
+
+      /* buttons
+      /^ ___________________________________________________________ */
+      /* these classes apply to our vml buttons */
+      .button {
+          word-break: keep-all !important;
+      }
+
+      @media only screen and (max-width: 480px) {
+          .button {
+              max-width: 100%;
+          }
+          /* expands button width on mobile */
+          .button.expand-mobile {
+              width: 100%;
+              min-width: 100%;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+          }
+      }
+
+      /* Image Helper Classes
+      /^ ___________________________________________________________ */
+
+      /* images can be inline-block without extra space by
+      wrapping img and anchor with div.img-wrap */
+      .img-wrap, .img-swap {
+          /* !! inline line-height: 0; */
+          line-height: 0;
+      }
+
+      /* gives alt text inside .img-wrap a normal line-height */
+      .img-wrap img, .img-swap img {
+          line-height: 1.15em;
+          font-weight: normal;
+      }
+
+      @media only screen and (max-width: 599px) {
+          /* make images greater than desktop dimensions
+          expanding them to the width of their container
+          when on fluid width */
+          img.expand-medium {
+              min-width: 100%;
+          }
+      }
+
+      @media only screen and (max-width: 480px) {
+          /* make images greater than desktop dimensions
+          expanding them to the width of their container
+          on mobile */
+          img.expand-mobile,
+          .images-expand-mobile img {
+              min-width: 100%;
+          }
+
+          /* image swap defaults. This image swap requires
+          less inline code since instead of a div or span
+          it uses the desktop image element to prop open
+          the height of the parent div which has has the
+          background-image. Since the desktop image is
+          still present but with zero width additional alt
+          text is no longer needed. */
+          .img-swap {
+              display: block;
+              width: 100%;
+              margin: 0 auto;
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+          }
+
+          .img-swap img {
+              width: 0px !important;
+              /* redefine this on project styles */
+              padding-bottom: 10px;
+          }
+      }
+
+      /* Grid Helper Classes
+      /^ ___________________________________________________________ */
+      /* Here is a prototype grid system which can
+        be used for any content we want to stack or
+        reflow on fluid or mobile sizes. Grid is the
+        class applied to a table, cell is applied to
+        th which by default is full width mobile.
+        Additional modifier classes can flow cells
+        next to each other in a multitude ways. If
+        spacing is needed outside table.grid it is
+        wrapped in table.grid-wrap which has a member
+        a td.padding-x usually */
+
+      @media only screen and (max-width: 480px) {
+          /* new cell stacking, apply .grid to table */
+          .grid {
+              display: block !important;
+              text-align: center !important;
+              margin: 0 auto;
+              word-spacing: -0.55ex;
+          }
+
+          .grid > tbody,
+          .grid > tbody > tr {
+              display: inline;
+          }
+
+          /* th column stacking on mobile defaults */
+          .cell {
+              display: inline-block;
+              box-sizing: border-box;
+              width: 100% !important;
+              padding-bottom: 30px !important;
+              border: none !important;
+              word-spacing: normal;
+          }
+      }
+
+      /* inline these
+      .large-12 { width: 100% !important; }
+      .large-11 { width: 91.666% !important; }
+      .large-10 { width: 83.334% !important; }
+      .large-9 { width: 75% !important; }
+      .large-8 { width: 83.334% !important; }
+      .large-7 { width: 58.336% !important; }
+      .large-6 { width: 50% !important; }
+      .large-5 { width: 41.667% !important; }
+      .large-4 { width: 33.333% !important; }
+      .large-3 { width: 25% !important; }
+      .large-2 { width: 16.664% !important; }
+      .large-1 { width: 8.332% !important; }
+      */
+
+      /* fluid width adjustment to .cell without wrapping */
+      @media only screen and (max-width: 599px) {
+          .medium-12 { width: 100% !important; }
+          .medium-11 { width: 91.666% !important; }
+          .medium-10 { width: 83.334% !important; }
+          .medium-9 { width: 75% !important; }
+          .medium-8 { width: 83.334% !important; }
+          .medium-7 { width: 58.336% !important; }
+          .medium-6 { width: 50% !important; }
+          .medium-5 { width: 41.667% !important; }
+          .medium-4 { width: 33.333% !important; }
+          .medium-3 { width: 25% !important; }
+          .medium-2 { width: 16.664% !important; }
+          .medium-1 { width: 8.332% !important; }
+      }
+
+      /* mobile .cell widths width wrapping, .small-12 by default */
+      @media only screen and (max-width: 480px) {
+          .small-12 { width: 100% !important; }
+          .small-11 { width: 91.666% !important; }
+          .small-10 { width: 83.334% !important; }
+          .small-9 { width: 75% !important; }
+          .small-8 { width: 83.334% !important; }
+          .small-7 { width: 58.336% !important; }
+          .small-6 { width: 50% !important; }
+          .small-5 { width: 41.667% !important; }
+          .small-4 { width: 33.333% !important; }
+          .small-3 { width: 25% !important; }
+          .small-2 { width: 16.664% !important; }
+          .small-1 { width: 8.332% !important; }
+
+          .cell.last {
+              padding-bottom: 0 !important;
+          }
+      }
+
+      /* padding and margin helper classes
+      /^ ___________________________________________________________ */
+
+      /*  inline these values and put the class
+          where it should change across breakpoints.
+          When different spacing is needed write a
+          chained class to redefine these classes like:
+          .black-tile .padding-xy { padding: 0 50px 40px; }
+          in the project media queries in section Z.
+
+      .padding-t, .padding-y, .padding-xy {     padding-top: 0px; }
+       .margin-t,  .margin-y,  .margin-xy {      margin-top: 0px; }
+
+      .padding-l, .padding-x, .padding-xy {   padding-left: 20px; }
+       .margin-l,  .margin-x,  .margin-xy {    margin-left: 20px; }
+
+      .padding-b, .padding-y, .padding-xy { padding-bottom: 30px; }
+       .margin-b,  .margin-y,  .margin-xy {  margin-bottom: 30px; }
+
+      .padding-r, .padding-x, .padding-xy {  padding-right: 20px; }
+       .margin-r,  .margin-x,  .margin-xy {   margin-right: 20px; }
+      */
+
+
+      @media only screen and (max-width: 480px) {
+          /* padding and margin helper classes, redefine scoped in organism */
+          .padding-t, .padding-y, .padding-xy {     padding-top: 0px !important; }
+          .margin-t,  .margin-y,  .margin-xy {      margin-top: 0px !important; }
+
+          .padding-l, .padding-x, .padding-xy {   padding-left: 10px !important; }
+          .margin-l,  .margin-x,  .margin-xy {    margin-left: 10px !important; }
+
+          .padding-b, .padding-y, .padding-xy { padding-bottom: 30px !important; }
+          .margin-b,  .margin-y,  .margin-xy {  margin-bottom: 30px !important; }
+
+          .padding-r, .padding-x, .padding-xy {  padding-right: 10px !important; }
+          .margin-r,  .margin-x,  .margin-xy {   margin-right: 10px !important; }
+      }
+  </style>
+  <!--[if mso]>
+  <style>
+    .img-swap,
+    .img-wrap {
+      line-height: 1 !important;
+      mso-style-priority: 99;
+    }
+  </style>
+  <![endif]-->
+
+  <!--===========================================================================
+   [ B ] Client
+  <?==========================================================================-->
+  <style>
+
+      /* [10] base styles redefined
+      /^ _______________________________________________________________ */
+
+      /* primary structure
+      /^ ___________________________________________________________ */
+
+      td.content, .content table {
+          /* inline this on td.content */
+          font-family: Poppins, sans-serif;
+          font-size: 14px;
+          line-height: 18px;
+          color: #000;
+      }
+
+      .button {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          font-size: 14px;
+          line-height: 18px;
+          color: #000;
+      }
+
+      /* padding and margin helper classes
+      /^ ___________________________________________________________ */
+
+      /*  inline these
+      .padding-t, .padding-y, .padding-xy {     padding-top: 0px; }
+       .margin-t,  .margin-y,  .margin-xy {      margin-top: 0px; }
+
+      .padding-l, .padding-x, .padding-xy {   padding-left: 20px; }
+       .margin-l,  .margin-x,  .margin-xy {    margin-left: 20px; }
+
+      .padding-b, .padding-y, .padding-xy { padding-bottom: 30px; }
+       .margin-b,  .margin-y,  .margin-xy {  margin-bottom: 30px; }
+
+      .padding-r, .padding-x, .padding-xy {  padding-right: 20px; }
+       .margin-r,  .margin-x,  .margin-xy {   margin-right: 20px; }
+      */
+
+      /* Landscape phones */
+      @media only screen and (max-height: 480px) {
+          /* padding and margin helper classes, redefine scoped in organism */
+          .padding-t, .padding-y, .padding-xy {     padding-top: 0px !important; }
+          .margin-t,  .margin-y,  .margin-xy {      margin-top: 0px !important; }
+
+          .padding-l, .padding-x, .padding-xy {   padding-left: 10px !important; }
+          .margin-l,  .margin-x,  .margin-xy {    margin-left: 10px !important; }
+
+          .padding-b, .padding-y, .padding-xy { padding-bottom: 30px !important; }
+          .margin-b,  .margin-y,  .margin-xy {  margin-bottom: 30px !important; }
+
+          .padding-r, .padding-x, .padding-xy {  padding-right: 10px !important; }
+          .margin-r,  .margin-x,  .margin-xy {   margin-right: 10px !important; }
+      }
+
+      @media only screen and (max-width: 480px) {
+          /* padding and margin helper classes, redefine scoped in organism */
+          .padding-t, .padding-y, .padding-xy {     padding-top: 0px !important; }
+          .margin-t,  .margin-y,  .margin-xy {      margin-top: 0px !important; }
+
+          .padding-l, .padding-x, .padding-xy {   padding-left: 10px !important; }
+          .margin-l,  .margin-x,  .margin-xy {    margin-left: 10px !important; }
+
+          .padding-b, .padding-y, .padding-xy { padding-bottom: 30px !important; }
+          .margin-b,  .margin-y,  .margin-xy {  margin-bottom: 30px !important; }
+
+          .padding-r, .padding-x, .padding-xy {  padding-right: 10px !important; }
+          .margin-r,  .margin-x,  .margin-xy {   margin-right: 10px !important; }
+      }
+
+      /* sized images
+      /^ ___________________________________________________________ */
+      @media only screen and (max-width: 480px) {
+          .small-image .feature-image {
+              max-width: 182px !important;
+          }
+
+          .large-image .feature-image {
+              max-width: 260px !important;
+          }
+      }
+
+      /* text only menu
+      /^ ___________________________________________________________ */
+      @media only screen and (max-width: 480px) {
+          .menu-text .padding-xy {
+              padding: 0 10px !important;
+          }
+
+          .menu-text .cell {
+              padding: 0 !important;
+              border-bottom: 1px solid #FDE358 !important;
+          }
+
+          .menu-text .cell a {
+              display: inline-block;
+              padding: 10px;
+          }
+      }
+
+      /* image menu
+      /^ ___________________________________________________________ */
+      @media only screen and (max-width: 480px) {
+          .menu-img .expand-mobile {
+              min-width: 60px !important;
+          }
+
+          .menu-img .grid .grid {
+              min-width: 100% !important;
+          }
+
+          .menu-img .icon-group {
+              min-width: 100% !important;
+          }
+
+          .menu-img .grid .grid .cell.last {
+              padding: 0 12% !important;
+          }
+      }
+
+      /* [30] WebKit Mobile Viewport Client Boilerplate
+      /^ _______________________________________________________________ */
+
+      /* targets webkit mobile clients where most of CSS3 is possible */
+      @media (max-width:480px) and (-webkit-min-device-pixel-ratio: 0) {
+
+      }
+
+
+  </style>
+
+  <!--===========================================================================
+   [ Z ] Project
+  <?==========================================================================-->
+  <style>
+      .wrapper-padding {
+          padding-left: 28px;
+          padding-right: 28px;
+      }
+
+      .wrapper-padding-half {
+          padding-left: 15px;
+          padding-right: 15px;
+      }
+
+      .font-1 {
+          font-family: 'Bricolage Grotesque', sans-serif !important;
+      }
+      .font-2 {
+          font-family: 'Poppins', sans-serif !important;
+      }
+
+
+      /* [10] Project Custom Global
+      /^ _______________________________________________________________ */
+
+      /* [30] Project Custom Mobile Styles
+      /^ _______________________________________________________________ */
+      @media only screen and (max-width: 480px) {
+
+          .wrapper-padding {
+              padding-left: 15px !important;
+              padding-right: 15px !important;
+          }
+          .how-to-earn-block tbody tr td {
+              padding-left: 40px !important;
+              padding-right: 40px !important;
+          }
+
+          .png-overlay {
+              padding: 20px !important;
+              background-color: #F0ECEA !important;
+          }
+      }
+
+  </style>
+
+</head>
+
+<body id="body" lang="en">
+<!-- conditional mso wrapper --><!--[if mso]><div class="mso"><![endif]-->
+
+<!-- preview text should be at least .............................................................. this long -->
+<div style="display: none; max-height: 0px; overflow: hidden">
+
+</div>
+
+<table class="background" style="background-color: #fff; border-spacing: 0; width: 100%;" role="presentation"><tr><td class="only-desktop" style="padding: 0">&zwnj;</td>
+
+  <td class="content" style="width: 600px; font-family: Poppins, sans-serif; font-size: 14px; line-height: 18px; color: #5d5d5d; text-align: left; background-color: #ffffff; padding: 0;">
+
+    <table style="margin:0; padding:0; width: 100%; border-collapse: collapse; border: 1px solid #000;">
+      <tr>
+        <td style="">
+          
+
+    <table style="width: 100%; background-color: #F1F1F1;" role="presentation">
+  <tr>
+    <td class="wrapper-padding" style="padding-top: 25px; padding-bottom: 25px; color: #939393">
+      Green Shopping Launch Email
+    </td>
+  </tr>
+</table>
+
+
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="">
+      <a href="https://applink.aspiration.com/impact/green-shopping?$ios_deeplink_path=impact/green-shopping&$android_deeplink_path=impact/green-shopping">
+        <img style="display: block; width: 100%;" src="images/hero.png"
+             alt="Hero image">
+      </a>
+    </td>
+  </tr>
+</table>
+
+
+
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td class="wrapper-padding" style="padding-top: 30px;">
+
+      <table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+        <tr>
+          <td>
+            <p class="font-2" style="margin: 0; font-size: 18px; line-height: 1.5;">Welcome to the Green Marketplace, our new cash back rewards program that lets you earn up to 6%<sup>1</sup> cash back on a wide variety of climate-friendly brands.</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+    <table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+      <tr>
+        <td class="wrapper-padding" style="padding-top: 36px; padding-bottom: 20px;">
+          <table class="grid-wrap" style="width: 100%;" role="presentation">
+            <tbody><tr>
+              <td class="" style="">
+
+                <div class="img-wrap">
+                  <a href="https://applink.aspiration.com/impact/green-shopping?$ios_deeplink_path=impact/green-shopping&$android_deeplink_path=impact/green-shopping" target="_blank"> <img src="images/banner-2.png" style="width: 100%;" alt=""></a>
+                </div>
+
+              </td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr>
+    </table>
+
+
+    <table class="grid-wrap" style="background-color: #F0ECEA; width: 100%" role="presentation">
+      <tbody><tr>
+        <td class="wrapper-padding" style="padding-top: 40px; padding-bottom: 40px;">
+
+          <table class="grid" style="direction: rtl; width: 100%" role="presentation">
+            <tbody><tr>
+              <td class="cell" style="direction: ltr; width: 50%; padding: 0 10px 30px;">
+
+                <div class="img-wrap" style="line-height: 0;">
+                  <img src="images/brands-1.png" alt="Discover More Brands, Earn More Cash Back">
+                </div>
+
+              </td>
+              <td class="cell" style="direction: ltr; width: 66%; padding: 0 10px 30px; font-weight: normal; color: inherit;">
+                <p style="font-weight: bold; font-size: 18px; line-height: 1.4;">Discover More Brands, <br> Earn More Cash Back</p>
+                <p style="line-height: 1.5">Say goodbye to Conscience Coalition and hello to over 80 climate-friendly brands across a wide variety of shopping categories in our new Green Marketplace. Our marketplace features only climate-friendly brands, carefully vetted for their positive environmental impact, with transparent data and clear justification for every inclusion. No greenwashing here!</p>
+              </td>
+            </tr>
+            </tbody></table>
+
+            
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="text-align: center;">
+      <table style="margin:0 auto; padding:0; border: 0; text-align: center; border-radius:6px; background-color: #FF6D1B;">
+        <tbody>
+        <tr>
+          <td height="48" style="font-size:13px; color: #000; padding:0px 35px; height:48px; font-weight:600; text-transform: uppercase; text-align: center; vertical-align: middle">
+            <a style=" text-decoration:none; color: #000; display:block; line-height:48px;" target="_blank" href="https://applink.aspiration.com">Explore Brands</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+        </td>
+      </tr>
+      </tbody></table>
+
+    <table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td class="font-1" style=" padding-top: 60px; padding-bottom: 40px;  text-align: center; ">
+      <span style="color: #5A899E; font-size: 32px;">How to Earn Cash Back</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-bottom: 40px; text-align: center;">
+      <table class="grid-wrap how-to-earn-block" style="width: 100%" role="presentation">
+        <tbody><tr>
+          <td class="padding-x" style="padding: 0 10px">
+
+            <table class="grid" style="table-layout: fixed; width: 100%;" role="presentation">
+              <tbody><tr style="vertical-align: top;">
+                <td class="cell" style="vertical-align: top; text-align: center; padding: 0 10px 30px;">
+
+                  <div style="padding-bottom: 20px;"><img src="images/icons/Billing History.jpg" alt=""></div>
+                  <div style="font-weight: bold; font-size: 18px; line-height: 1.4; margin-bottom: 10px;">1. Explore</div>
+                  <div style="text-align: center; color: #595959">Open our app or visit the Green Marketplace on aspiration.com. <b>Click on the brand link before you start shopping.</b></div>
+
+                </td>
+                <td class="cell" style="vertical-align: top; text-align: center; padding: 0 10px 30px;">
+
+                  <div style="padding-bottom: 20px;"><img src="images/icons/Digital Card.jpg" alt=""></div>
+                  <div style="font-weight: bold; font-size: 18px; line-height: 1.4; margin-bottom: 10px;">2. Shop</div>
+                  <div style="text-align: center; color: #595959">Open our app or visit the Green Marketplace on aspiration.com. <b>Click on the brand link before you start shopping.</b></div>
+
+
+                </td>
+                <td class="cell" style="vertical-align: top; text-align: center; padding: 0 10px 30px;">
+
+                  <div style="padding-bottom: 20px;"><img src="images/icons/Buy & Sell.jpg" alt=""></div>
+                  <div style="font-weight: bold; font-size: 18px; line-height: 1.4; margin-bottom: 10px;">3. Earn</div>
+                  <div style="text-align: center; color: #595959">Open our app or visit the Green Marketplace on aspiration.com. <b>Click on the brand link before you start shopping.</b></div>
+
+
+                </td>
+              </tr>
+              </tbody></table>
+
+          </td>
+        </tr>
+        </tbody></table>
+    </td>
+  </tr>
+</table>
+
+    <table class="grid-wrap" style="width: 100%" role="presentation">
+  <tbody><tr>
+    <td class="wrapper-padding-half">
+
+      <table class="grid" style="table-layout: fixed; width: 100%;" role="presentation">
+        <tbody>
+        <tr style="vertical-align: top;">
+          
+          <td class="cell" style="padding: 0 10px 30px; font-weight: normal; color: inherit;">
+            <div style="margin-bottom: 20px;"><img src="images/img1.png" alt=""></div>
+            <div style="font-size: 18px; font-weight: bold; line-height: 1.5; margin: 0 0 10px;">Thrive Market</div>
+            <p style="margin: 0; font-size: 18px; line-height: 1.5;">High quality organic groceries, delivered to you! Great prices on healthy products and diet-friendly foods from the best brands.</p>
+          </td>
+          
+          <td class="cell" style="padding: 0 10px 30px; font-weight: normal; color: inherit;">
+            <div style="margin-bottom: 20px;"><img src="images/img1.png" alt=""></div>
+            <div style="font-size: 18px; font-weight: bold; line-height: 1.5; margin: 0 0 10px;">Thrive Market</div>
+            <p style="margin: 0; font-size: 18px; line-height: 1.5;">High quality organic groceries, delivered to you! Great prices on healthy products and diet-friendly foods from the best brands.</p>
+          </td>
+          
+        </tr>
+        </tbody></table>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+    <table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td class="font-1" style=" padding-top: 60px; padding-bottom: 18px; color: #5A899E; text-align: center; font-size: 32px;">
+      Find What You Need
+    </td>
+  </tr>
+  <tr>
+    <td class="font-1" style="padding-bottom: 34px; color: #232835; text-align: center; font-size: 14px;">
+      Shop at more than 80 climate-friendly brands
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-bottom: 20px;">
+      <table class="grid-wrap" style="width: 100%" role="presentation">
+        <tbody><tr>
+          <td class="wrapper-padding-half" style="padding: 0 10px">
+            
+            
+            
+            
+            <table class="grid" style="table-layout: fixed; width: 100%;" role="presentation">
+              <tbody>
+              <tr style="vertical-align: top;">
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Apparel%20%26%20Accessories&$category_id=apparel-and-accessories" target="_blank"> <img src="images/cats/apparel-and-accessories.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Electronics%20%26%20Appliances&$category_id=electronics-and-appliances" target="_blank"> <img src="images/cats/electronics-and-appliances.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Entertainment&$category_id=entertainment" target="_blank"> <img src="images/cats/entertainment.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+              </tr>
+              </tbody>
+            </table>
+            
+            <table class="grid" style="table-layout: fixed; width: 100%;" role="presentation">
+              <tbody>
+              <tr style="vertical-align: top;">
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Ev%20Charging&$category_id=ev-charging" target="_blank"> <img src="images/cats/ev-charging.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Food%20%26%20Grocery&$category_id=food-and-grocery" target="_blank"> <img src="images/cats/food-and-grocery.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Home%20%26%20Decor&$category_id=home-and-decor" target="_blank"> <img src="images/cats/home-and-decor.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+              </tr>
+              </tbody>
+            </table>
+            
+            <table class="grid" style="table-layout: fixed; width: 100%;" role="presentation">
+              <tbody>
+              <tr style="vertical-align: top;">
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Outdoors%20Sports%20%26%20Recreation&$category_id=outdoors-sport-and-recreation" target="_blank"> <img src="images/cats/outdoors-sport-and-recreation.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Beauty%20%26%20Health&$category_id=beauty-and-health" target="_blank"> <img src="images/cats/beauty-and-health.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Public%20Transport&$category_id=public-transport" target="_blank"> <img src="images/cats/public-transport.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+              </tr>
+              </tbody>
+            </table>
+            
+            <table class="grid" style="table-layout: fixed; width: 100%;" role="presentation">
+              <tbody>
+              <tr style="vertical-align: top;">
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Recommerce&$category_id=recommerce" target="_blank"> <img src="images/cats/recommerce.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Pets&$category_id=pets" target="_blank"> <img src="images/cats/pets.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+                <th class="cell" style="padding: 0 10px 20px;">
+
+                  <div class="img-wrap" style="line-height: 0;">
+                    <a href="https://applink.aspiration.com/impact/green-shopping/categories?$ios_deeplink_path=impact/green-shopping/categories&amp;$android_deeplink_path=impact/green-shopping/categories&amp;$category_name=Baby&$category_id=baby" target="_blank"> <img src="images/cats/baby.png" width="173" alt=""></a>
+                  </div>
+
+                </th>
+                
+                
+              </tr>
+              </tbody>
+            </table>
+            
+
+          </td>
+        </tr>
+        </tbody></table>
+    </td>
+  </tr>
+</table>
+
+
+
+
+    
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="text-align: center;">
+      <table style="margin:0 auto; padding:0; border: 0; text-align: center; border-radius:6px; background-color: #FF6D1B;">
+        <tbody>
+        <tr>
+          <td height="48" style="font-size:13px; color: #000; padding:0px 35px; height:48px; font-weight:600; text-transform: uppercase; text-align: center; vertical-align: middle">
+            <a style=" text-decoration:none; color: #000; display:block; line-height:48px;" target="_blank" href="https://applink.aspiration.com">Shop now</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+    
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="padding-bottom: 40px;"></td>
+  </tr>
+</table>
+
+
+<table class="grid-wrap" style="width: 100%; background-color: #CBDDE5" role="presentation">
+  <tbody><tr>
+    <td class="wrapper-padding" style="padding-top: 58px; padding-bottom: 20px;">
+
+      <table class="grid" style="width: 100%; color: #5D5D5D" role="presentation">
+        <tbody><tr>
+          <td class="cell" style="vertical-align: top; width: 52%; font-weight: normal; color: inherit; padding: 0 0 30px 10px">
+
+            <div style="font-size: 21px; line-height: 1.4; color: #191919; font-weight:bold; margin: 0 0 10px">Make Your
+              <br> Purchases Count</div>
+
+            <p style="margin: 0; line-height: 24px;">Standard account holders earn <br> 3% cash back, and Aspiration Plus members earn 6% cash back.</p>
+
+            
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="padding-bottom: 30px;"></td>
+  </tr>
+</table>
+
+            
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="text-align: center;">
+      <table style="margin:0 auto; padding:0; border: 0; text-align: center; border-radius:6px; background-color: #FF6D1B;">
+        <tbody>
+        <tr>
+          <td height="48" style="font-size:13px; color: #000; padding:0px 20px; height:48px; font-weight:600; text-transform: uppercase; text-align: center; vertical-align: middle">
+            <a style=" text-decoration:none; color: #000; display:block; line-height:48px;" target="_blank" href="https://applink.aspiration.com">Upgrade to Aspiration Plus</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+          </td>
+          <th class="cell" style="width: 48%; padding: 0 10px 30px; vertical-align: top;">
+
+            <div class="img-wrap" style="line-height: 0;">
+              <img src="images/CTA-Img-4.jpg" width="250" alt="">
+            </div>
+
+          </th>
+        </tr>
+        </tbody></table>
+
+    </td>
+  </tr>
+  </tbody></table>
+
+
+
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="padding-bottom: 30px;"></td>
+  </tr>
+</table>
+
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="text-align: center">
+      <table class="img-wrap icon-group" style="display: inline-table; width: 170px; min-width: 0; line-height: 0" role="presentation">
+        <tbody><tr>
+          
+          <td style="padding: 0 10px 0">
+            <a href="#" target="_blank"> <img src="images/social/1.png" width="24" alt="facebook"> </a>
+          </td>
+          
+          <td style="padding: 0 10px 0">
+            <a href="#" target="_blank"> <img src="images/social/2.png" width="24" alt="facebook"> </a>
+          </td>
+          
+          <td style="padding: 0 10px 0">
+            <a href="#" target="_blank"> <img src="images/social/3.png" width="24" alt="facebook"> </a>
+          </td>
+          
+          <td style="padding: 0 10px 0">
+            <a href="#" target="_blank"> <img src="images/social/4.png" width="24" alt="facebook"> </a>
+          </td>
+          
+
+        </tr>
+        </tbody></table>
+
+    </td>
+  </tr>
+</table>
+
+<table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+  <tr>
+    <td class="wrapper-padding" style="padding-top: 20px;">
+      <table style="margin:0; padding:0; border: 0; width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="padding-top: 20px; padding-bottom: 30px; border-top: 2px solid #000">
+            <img src="images/footer-img.png" alt="footer-img">
+          </td>
+        </tr>
+      </table>
+
+
+      <p>†The Aspiration Spend & Save accounts are checking and savings accounts offered through Coastal Community Bank, Member FDIC. Approved deposit accounts are FDIC insured up to $250,000 per depositor. For balances greater than $250,000, Coastal will Sweep the excess funds to one or more FDIC-insured depository institutions in their Sweep network (each a “Bank”) up to $250,000 per Bank. With five Banks available through the Coastal Community Bank Insured Bank Deposit Program, Deposits are FDIC-insured up to $1.25 million per depositor. This amount is subject to change at any time. Visit fdic.gov. Aspiration’s Program Banks have formally committed that customer deposits will not be used for lending to oil and gas exploration, production or transportation, or coal mining.</p>
+      <p>Aspiration Debit Cards are issued by Coastal Community Bank, Member FDIC, pursuant to a license by Mastercard® International Incorporated. Aspiration is under separate ownership from any other named entity. Aspiration is not a bank.</p>
+      <p>An affiliate, Aspiration Fund Adviser, LLC is an SEC registered investment adviser. Investments placed in the Redwood Fund are not eligible for FDIC Insurance, are not bank guaranteed and may lose value.
+      </p>
+      <p>
+        1 Aspiration’s Cash Back program is subject to change at any time and without notice, including reversal of rewards for abuse, fraud, and other illicit activity. Cash Back rewards are generally credited on the first day of each calendar month. For additional Cash Back details, click cash back on purchases.
+      </p>
+      <p>
+
+        Aspiration may make a small commission from qualifying purchases made through affiliate links. By starting your shopping journey from one of the links above, you help fund Aspiration’s work researching and evaluating potential Green Marketplace partners.
+      </p>
+
+      <p>
+        Have a question? Please check out our Frequently Asked Questions page.
+
+      </p>
+      <p>
+        Email not displaying correctly? View in browser. If you no longer wish to receive these emails, you may click here to unsubscribe immediately.
+
+      </p>
+      <p>
+        © Copyright 2024 Mission Financial Partners, LLC. <br> This email was sent by Aspiration, 1100 Sansome Street, San Francisco, CA 94111
+        <br> Aspiration is trademark protected under license to Mission Financial Partners, LLC. All rights reserved.
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+        </td>
+      </tr>
+    </table>
+
+
+
+
+  </td><td class="only-desktop" style="padding: 0">&zwnj;</td></tr></table>
+<!--[if mso]></div><![endif]-->
+</body>
+</html>
